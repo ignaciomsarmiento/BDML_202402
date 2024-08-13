@@ -8,6 +8,7 @@
 *.html
 /Lecture10/notes/*
 */Notes/* 
+*_notes.pdf
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:

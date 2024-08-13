@@ -1,0 +1,1577 @@
+\documentclass[
+  shownotes,
+  xcolor={svgnames},
+  hyperref={colorlinks,citecolor=DarkBlue,linkcolor=andesred,urlcolor=DarkBlue}
+  , aspectratio=169]{beamer}
+\usepackage{animate}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{mathpazo}
+%\usepackage{xcolor}
+\usepackage{multimedia}
+\usepackage{fancybox}
+\usepackage[para]{threeparttable}
+\usepackage{multirow}
+\setcounter{MaxMatrixCols}{30}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage[compatibility=false,font=small]{caption}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{chronosys}
+\usepackage{appendixnumberbeamer}
+\usepackage{animate}
+\setbeamertemplate{caption}[numbered]
+\usepackage{color}
+%\usepackage{times}
+
+\usepackage{comment} %to comment
+%% BibTeX settings
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\bibpunct{(}{)}{,}{a}{,}{,}
+\setbeamertemplate{bibliography item}{[\theenumiv]}
+
+% Defines columns for bespoke tables
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\usepackage{xfrac}
+
+
+\usepackage{multicol}
+\setlength{\columnsep}{0.5cm}
+
+% Theme and colors
+\usetheme{Boadilla}
+
+% I define a custom pallete
+\definecolor{andesred}{HTML}{1B175E}
+\definecolor{andesyellow}{HTML}{ffff00}
+
+% Other options
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+\usefonttheme{serif}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[square]
+\setbeamertemplate{section in toc}[circle]
+
+
+\definecolor{mybackground}{HTML}{1B175E}
+\definecolor{myforeground}{HTML}{0000A0}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{alerted text}{fg=andesred}
+\setbeamercolor{example text}{fg=black}
+
+\setbeamercolor{background canvas}{fg=myforeground, bg=white}
+\setbeamercolor{background}{fg=myforeground, bg=mybackground}
+\setbeamercolor{palette tertiary}{fg=myforeground,bg=mybackground}
+
+\setbeamercolor{palette primary}{fg=black, bg=white}
+\setbeamercolor{palette secondary}{fg=black, bg=white!10!andesyellow}
+\setbeamercolor{palette tertiary}{fg=black, bg=white}
+
+
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{block title}{fg=andesred}
+\setbeamercolor{itemize item}{fg=andesred}
+\setbeamercolor{itemize subitem}{fg=andesred}
+\setbeamercolor{itemize subsubitem}{fg=andesred}
+\setbeamercolor{enumerate item}{fg=andesred}
+\setbeamercolor{item projected}{bg=gray!30!white,fg=andesred}
+\setbeamercolor{enumerate subitem}{fg=andesred}
+\setbeamercolor{section number projected}{bg=gray!30!white,fg=andesred}
+\setbeamercolor{section in toc}{fg=andesred}
+\setbeamercolor{caption name}{fg=andesred}
+\setbeamercolor{button}{bg=gray!30!white,fg=andesred}
+\setbeamercolor{title in head/foot}{fg=andesred}
+
+
+
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+\makeatletter
+
+\makeatother
+
+
+
+
+
+
+%%%%%%%%%%%%%%% BEGINS DOCUMENT %%%%%%%%%%%%%%%%%%
+
+
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Agenda}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+
+\AtBeginSubsection[]
+{
+    \begin{frame}
+        \frametitle{Agenda}
+        \tableofcontents[currentsubsection]
+    \end{frame}
+}
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+\begin{document}
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+
+\title{Prediction and Linear Regression}
+\subtitle{Big Data y Machine Learning para Economía Aplicada}
+\date{}
+
+\author[Sarmiento-Barbieri]{Ignacio Sarmiento-Barbieri}
+\institute[Uniandes]{Universidad de los Andes}
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+
+\begin{frame}[noframenumbering]
+\maketitle
+\end{frame}
+
+
+
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Agenda}
+
+\tableofcontents
+
+
+\end{frame}
+
+
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+\section{Machine learning is all about prediction}
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+\section{Best Predictor}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Best Predictor}
+
+
+
+\begin{itemize}
+  \item In the population, the best predictor of Y given W 
+
+
+  \begin{align}
+    g(W) = E[Y|W]
+  \end{align}
+
+  \item $W$ are "raw regressors"
+
+
+\begin{align}
+  X= T(W)
+\end{align}
+
+\item $T(W)$ dictionary of transformations.
+
+\item If $W$ are "raw" regressors/features, technical (constructed) regressors are of the form $X= T(W)$ where the set of transformations $T(W)$ is sometimes called the dictionary of transformations. Example transformations include polynomials, interactions between variables, and applying functions such as the logarithm or exponential
+\end{itemize}
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{ Best Predictor}
+
+
+\begin{itemize}
+
+\item The CEF solves the best prediciton problem
+
+\medskip
+\begin{align}
+  min_{m(W)} E[(Y-m(W))^2]=  \int (Y-m(W))^2 Pr(dW,dY)
+\end{align}
+
+\item conditioning on W we have that
+\begin{align}
+ E_W E_{Y|X} [(Y-m(W))^2|W]
+\end{align}
+
+\end{itemize}
+
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{ Best Predictor}
+
+\begin{itemize}
+  \item By conditioning on W, it suffices to minimize  the $MSE$ point wise so
+  \medskip
+
+
+\begin{align}
+   argmin_m E_{Y|W} [(Y-m)^2|W=w)
+\end{align}
+
+\medskip
+
+\item Y a random variable and m a constant (predictor)
+
+\medskip
+
+\begin{align}
+min_m E(Y-m)^2= \int (Y-m)^2  f(Y)dY
+\end{align}
+
+
+\end{itemize}
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{ Best Predictor}
+
+\begin{itemize}
+\item {\bf Result}: The best prediction of $Y$ at any point $W = w$ is the conditional mean, when best is measured using a square error loss
+
+\medskip
+\item As the conditional expectation solves the same problem as the best linear prediction rule among a larger class of candidate rules, the conditional expectation generally provides better
+2 predictions than the best linear prediction rule
+\medskip
+\item Unless the conditional expecta- tion function turns out to be linear, in which case the conditional expectation and best linear prediction rule coincide.
+\end{itemize}
+\end{frame}
+
+
+%----------------------------------------------------------------------%
+\subsection{Statistical Properties}
+%----------------------------------------------------------------------%
+
+\begin{frame}
+\frametitle{The Best Linear Prediction Problem in Finite Samples}
+
+\begin{align}
+  {(Y_i,X_i)}_{i=1}^n =((Y_1,X_1),\dots, (Y_n,X_n))
+\end{align}
+
+
+\begin{itemize}
+  \item We assume that this sample is a random sample from the distribution of $(Y,X)$
+  \medskip
+  \item  Formally, this condition means that the observations were obtained as realizations of independently and identically distributed (iid) copies of the random variable $(Y,X)$. 
+  \medskip
+  \item We are treating observations as iid realizations, ie. independent random draws with replacement from a population. 
+\end{itemize}
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{The Best Linear Prediction Problem in Finite Samples}
+
+\begin{itemize}
+
+  \item Replace $E$ with  $\mathbb{E}$
+\item We construct the best in-sample linear prediction rule for $Y$ using $X$ analogously to the population case by replacing theoretical expected values, with empirical averages
+
+
+\begin{align}
+  \sum_{j=1}^{k} \hat{\beta_j}X_j=\hat{\beta}'X
+\end{align}
+
+
+\item $\hat{\beta}$ is any solution to the Best Linear Prediction Problem in the Sample, also known as Ordinary Least Squares (OLS)
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Properties}
+
+Under certain assumptions {\tiny HW Review the Assumption from Econometrics}
+\bigskip
+\begin{itemize}
+  \item Small Sample (Gauss-Markov Theorem)
+  \medskip
+  \begin{itemize}
+    \item Unbiased: $E(\hat \beta) = \beta$
+    \medskip
+    \item Minimum Variance: $Var(\tilde \beta) - Var(\hat \beta)$ is positive semidefinite matrix
+    \tiny Proof: HW. Remember: a matrix $M_{p\times p}$ is positive semi-definite iff $c'Mc\geq0$ $\forall c\in \mathbb{R}^p$
+  \end{itemize}
+\bigskip  
+  \item Large Sample
+  \medskip
+  \begin{itemize}
+    \item Consistency: $\hat \beta \rightarrow_p \beta$
+    \medskip
+    \item Asymptotically Normal: $\sqrt{N}(\hat \beta -\beta) \sim_a N(0,S)$
+  \end{itemize}
+
+\end{itemize}
+
+
+\end{frame}
+
+
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Gauss Markov Theorem}
+
+\begin{itemize}
+  \item Gauss Markov Theorem that says OLS is BLUE is perhaps one of the most famous results in statistics. 
+  \medskip
+  \begin{itemize}
+    \item $E(\hat\beta) = \beta$
+    \medskip 
+    \item $Var(\hat \beta ) = \sigma^2 (X'X)^{-1}$
+  \end{itemize}
+  \medskip
+  \item and implies that $\hat y$ is an unbiased predictor and minimum variance, from the class of unbiased linear predictors (BLUP) {\tiny H.W. proof}
+  \pause
+\medskip
+  \item However, it is essential to note the limitations of the theorem. 
+
+  \begin{itemize}
+    \footnotesize
+    \item Correctly specified with exogenous Xs, 
+      \medskip 
+    \item The term error is homoscedastic 
+      \medskip 
+    \item No serial correlation.
+      \medskip 
+    \item Nothing about the OLS estimator being the more efficient than any other estimator one can imagine.
+  \end{itemize}
+    
+    %\medskip 
+    %\item Estimators that are nonlinear and/or biased may have a better performance than OLS 
+  
+
+\end{itemize}
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Properties}
+
+\begin{itemize}
+
+  \item The best linear prediction rule is also the best linear rule for predicting future values of \(Y\) given a new draw \(X\), when new \((Y, X)\) are sampled from the same population. Therefore, if we can approximate the best linear prediction rule in the population, we can also approximate the best linear prediction rule for predicting outcomes given future \(X\)'s sampled from the population.
+\item   We often use the hat decoration \(\hat{}\) for quantities that depend on the sample. For example, \(\beta\) denotes the BLP in the population, while \(\hat{\beta}\) is the BLP in the sample.
+
+  \item The fundamental statistical issue is that we are trying to estimate $k$ parameters
+  \medskip
+  \item We need many observations per parameter
+  \medskip
+  \item $n/p$ should be large, or, equivalently that $p/n$ should be small, in order for estimation error to be small
+\end{itemize}
+
+
+ 
+
+\end{frame}
+
+
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Analysis of Variance}
+
+\begin{itemize}
+  \item Involves the decomposition of the variation of $Y$ into explained and unexplained parts. 
+  \medskip
+  \item Explained variation is a measure of the predictive performance of a model. 
+\medskip
+\item Can be conducted both in the population and in the sample.
+\end{itemize}
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Analysis of Variance}
+
+
+The main idea is to use the previous decomposition of $Y$,
+
+\begin{align*}
+Y &= \beta'X + \epsilon, \\
+\mathbb{E}[\epsilon \mid X] &= 0,
+\end{align*}
+
+to decompose the variation in \(Y\) into the sum of explained variation and residual variation.
+
+
+
+
+\begin{align*}
+E[Y^2] &= E[(\beta'X)^2] + E[\epsilon^2]
+\end{align*}
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Analysis of Variance}
+
+
+The quantity :
+
+\begin{align*}
+\text{MSE}_{\text{pop}} &= E[\epsilon^2].
+\end{align*}
+
+is the population MSE. 
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Analysis of Variance}
+\begin{itemize}
+  \item Notemos que esto no es otra cosa que la suma de los residuales al cuadrado
+  \begin{align}
+  MSE &= \frac{1}{n} \sum_{i=1}^n (y_i - \hat{f}(X) )^2 \\ 
+      &= \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y} )^2 \\ 
+      &= \frac{1}{n} \sum_{i=1}^n (e)^2 \\ 
+      &= RSS
+  \end{align}
+  \item Esta medida nos da una idea de {\it lack of fit} que tan mal ajusta el modelo a los datos
+\end{itemize}
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Analysis of Variance}
+
+\begin{itemize}
+\item Un problema del RSS es que nos da una medida absoluta de ajuste de los datos, y por lo tanto no esta claro que constituye un buen RSS.
+\medskip
+\item Una alternativa muy usada en economía es el $R^2$
+\medskip
+\item Este es una proporción (la proporción de varianza explicada), 
+\begin{itemize}
+  \item toma valores entre 0 y 1,
+  \item   es independiente de la escala (o unidades) de $y$
+ \end{itemize} 
+ \end{itemize} 
+The ratio of the explained variation to the total variation is the population \(R^2\):
+
+\begin{align*}
+R^2_{\text{pop}} &= \frac{E[(\beta'X)^2]}{E[Y^2]} = 1 - \frac{E[\epsilon^2]}{\mathbb{E}[Y^2]}.
+\end{align*}
+
+That is, \(R^2_{\text{pop}}\) is the proportion of variation of \(Y\) explained by the Best Linear Predictor (BLP).
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Analysis of Variance}
+The decomposition of the variance in the sample proceeds analogously. Using the representation
+
+\[
+Y_i = \hat{\beta}' X_i + \hat{\epsilon}_i
+\]
+
+and the orthogonality condition \(\mathbb{E}_n[X \hat{\epsilon}] = 0\) provided by the sample Normal Equations, we obtain the decomposition
+
+\[
+\mathbb{E}_n[Y^2] = \mathbb{E}_n[(\hat{\beta}'X)^2] + \mathbb{E}_n[\hat{\epsilon}^2].
+\]
+
+
+The sample mean squared error (MSE) is:
+
+\[
+\text{MSE}_{\text{sample}} = \mathbb{E}_n[\hat{\epsilon}^2].
+\]
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Analysis of Variance}
+
+The sample \(R^2\) is given by:
+
+\begin{align*}
+R^2_{\text{sample}} &:= \frac{\mathbb{E}_n[(\hat{\beta}'X)^2]}{\mathbb{E}_n[Y^2]} \\
+&= 1 - \frac{\mathbb{E}_n[\hat{\epsilon}^2]}{\mathbb{E}_n[Y^2]} \\
+&\in [0, 1].
+\end{align*}
+
+We have the following approximations:
+
+\[
+\mathbb{E}_n[Y^2] \approx \mathbb{E}[Y^2], \quad \mathbb{E}_n[(\hat{\beta}'X)^2] \approx \mathbb{E}[(\beta'X)^2], \quad \text{and} \quad \mathbb{E}_n[\hat{\epsilon}^2] \approx \mathbb{E}[\epsilon^2].
+\]
+
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Analysis of Variance}
+
+By the law of large numbers and under some regularity conditions, when \(\frac{p}{n}\) is small, we have the following approximations:
+
+Thus, when \(\frac{p}{n}\) is small and \(n\) is large, the sample fit measures are good approximations to population fit measures:
+
+\[
+\text{MSE}_{\text{sample}} \approx \text{MSE}_{\text{pop}} \quad \text{and} \quad R^2_{\text{sample}} \approx R^2_{\text{pop}}.
+\]
+
+\textbf{Overfitting: What Happens When \(\frac{p}{n}\) Is Not Small}
+
+When \(\frac{p}{n}\) is not small, the picture about predictive performance of the in-sample BLP becomes inaccurate and possibly misleading. In this setting, the in-sample linear predictor can be substantially different from the population BLP.
+
+\end{frame}
+%----------------------------------------------------------------------%
+\subsection{Numerical Properties}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Numerical Properties}
+
+\begin{itemize}
+  \item Numerical properties have nothing to do with how the data was generated
+  \bigskip
+  \item These properties hold for every data set, just because of the way that $\hat \beta$ was calculated
+  \bigskip
+  \item Davidson \& MacKinnon, Greene y Ruud have nice geometric interpretations
+  \bigskip
+  \item Helps in computing with big data
+  
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Projection}
+
+OLS Residuals:
+
+\begin{align}
+e &=y-\hat y \\
+ &=y-X\hat\beta 
+\end{align}
+
+replacing $\hat \beta $
+
+\begin{align}
+e &= y- X(X'X)^{-1}X'y \\
+  &= (I- X(X'X)^{-1}X')y
+\end{align}
+
+Define two matrices
+
+\begin{itemize}
+\item Projection matrix $P_X=X(X'X)^{-1}X'$ 
+\item Annihilator (residual maker) matrix $M_X=(I-P_X)$
+\end{itemize}
+
+
+\end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Projection}
+
+\begin{itemize}
+\item $P_X=X(X'X)^{-1}X'$ 
+\item $M_X=(I-P_X)$
+\end{itemize}
+
+\begin{itemize}
+  \item Both are symmetric
+  \item Both are idempotent $(A'A)=A$
+  \item $P_XX=X$ $\Rightarrow$ projection matrix
+  \item $M_XX=0$ $\Rightarrow$ annihilator matrix
+\end{itemize}
+
+We can write
+
+\begin{align}
+SSR = e'e = u'M_Xu
+\end{align}
+
+So we can relate SSR to the true error term u
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Frisch-Waugh-Lovell (FWL) Theorem}
+\begin{itemize}
+\item Lineal Model: $Y=X\beta +u$
+\item Split it: $Y=X_1 \beta_1 + X_2 \beta_2 +u$
+  \begin{itemize}
+    \footnotesize
+  \item $X=[X_1\,X_2]$, $X$ is $n\times k$, $X_1$ $n\times k_1$, $X_2$ $n\times k_2$, $k=k_1+k_2$
+  \item $\beta = [\beta_1 \, \beta_2]$ 
+  \end{itemize}
+\end{itemize}
+
+
+{\bf Theorem}
+\begin{enumerate}
+  \item The OLS estimates of $\beta_2$ from these equations
+  \begin{align}
+  y &= X_1 \beta_1 +X_2 \beta_2 +u  \\
+  \medskip
+  M_{X_1}y &= M_{X_1}X_2 \beta_2 + residuals 
+  \end{align}
+
+  are numerically identical
+  \bigskip
+  \item the OLS residuals from these regressions are also numerically identical
+\end{enumerate}
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Applications}
+
+\begin{itemize}
+
+
+  \item Why FWL is useful in the context of big volume of data?
+  \bigskip
+  \item An computationally inexpensive way of
+\begin{itemize}
+  \medskip
+  \item  Removing nuisance parameters
+  \begin{itemize}
+    \item E.g. the case of multiple fixed effects. The traditional way is either apply the within transformation with respect to the FE with more categories then add one dummy for each category for all the subsequent FE 
+    \item Not feasible in certain instances. 
+  \end{itemize}
+  \medskip
+  \item Computing certain diagnostic statistics: Leverage, $R^2$, LOOCV.
+  \medskip
+  \item Way to add more data without having to compute everything again
+
+\end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Applications: Fixed Effects}
+
+\begin{itemize}
+\item For example: Carneiro, Guimarães, \& Portugal (2012) {\it AEJ: Macroeconomics}
+  \begin{align}
+  \ln w_{ijft} = x_{it} \beta + \lambda_i +\theta_j +\gamma_f + u_{ijft}
+  \end{align}
+  \begin{align}
+  Y &= X\beta + D_1 \lambda + D_2 \theta + D_3 \gamma+ u 
+  \end{align}
+
+  \begin{itemize}
+    \item Data set  31.6 million observations, with 6.4 million individuals (i), 624 thousand firms (f), and 115 thousand occupations (j), 11 years (t).
+    \item Storing the required indicator matrices would require 23.4 terabytes of memory
+    \item From their paper  \\
+    \footnotesize
+    {\it ``In our application, we first make use of the Frisch-Waugh-Lovell theorem to remove the influence of the three high- dimensional fixed effects from each individual variable, and, in a second step, implement the final regression using the transformed variables. With a correction to the degrees of freedom, this approach yields the exact least squares solution for the coefficients and standard errors''}
+
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Applications: Outliers and High Leverage Data}
+
+\begin{itemize}
+
+
+\item Note the following 
+
+\begin{align}
+\hat \beta=(X'X)^{-1}X'y
+\end{align}
+
+\item  each element of the vector of parameter estimates $\hat \beta$ is simply a weighted average of the elementes of the vector $y$
+
+\item  Let's call $c_j$ the {j-th} row of the matrix $(X'X)^{-1}X'$ then
+
+\begin{align}
+\hat \beta_j=c_j y
+\end{align}
+
+
+\item \href{https://cede.uniandes.edu.co/influence/}{App}
+\end{itemize}
+
+\end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Applications: Outliers and High Leverage Data}
+
+Consider a dummy variable $e_j$ which is an $n-vector$ with element $j$ equal to 1 and the rest is 0. 
+Include it as a regressor
+
+\begin{align}
+y =X\beta+\alpha e_j +u
+\end{align}
+
+using FWL we can do 
+\begin{align}
+M_{e_j} y =M_{e_j} X\beta + r
+\end{align}
+
+\begin{itemize}
+  \footnotesize
+\item $\beta$ and {\it residuals} from both regressions are identical
+\item Same estimates as those that would be obtained if we deleted observation $j$ from the sample. We are going to denote this as $\beta^{(j)}$
+\end{itemize}
+
+\begin{tiny}
+Note: 
+\begin{itemize}
+\item $M_{e_j}=I-e_j(e_j'e_j)^{-1}e_j'$
+\item  $M_{e_j} y = y-e_j(e_j'e_j)^{-1}e_j' y= y-y_je_j$
+\item  $M_{e_j} X$ is X with the {\it j row } replaced by zeros
+\end{itemize}
+\end{tiny}
+
+\end{frame}
+
+
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Applications: Outliers and High Leverage Data}
+Let's define a new matrix $Z=[X,e_j]$
+\begin{align}
+y &= X\beta+\alpha e_j +u \\
+y &= Z\theta +u
+\end{align}
+
+then the fitted values  and residuals
+
+\begin{align}
+y &= P_Z y + M_zy  \\
+&= X\hat \beta^{(j)} + \hat \alpha e_j + M_Z y
+\end{align}
+
+Pre-multiply by $P_X$ (remember $M_Z P_X=0$) 
+
+\begin{align}
+P_X y &= X\hat \beta^{(j)} + \hat \alpha P_X e_j \\
+X \hat \beta  &= X\hat \beta^{(j)} + \hat \alpha P_X e_j \\
+X (\hat \beta  -  \beta^{(j)} )&= \hat \alpha P_X e_j 
+\end{align}
+\end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Applications: Outliers and High Leverage Data}
+How to calculate $\alpha$? FWL once again
+
+\begin{align}
+M_X y =\hat\alpha M_X e_j + res
+\end{align}
+
+\begin{align}
+\hat\alpha = (e_j'M_X e_j)^{-1}  e_j'M_X y  
+\end{align}
+
+\begin{itemize}
+\item $e_j'M_X y $ is the $j$ element of $M_Xy$, the vector of residuals from the regression including all observations
+\item $e_j'M_xe_j$ is just a scalar, the diagonal element of $M_X$
+
+Then 
+
+\begin{align}
+\hat\alpha = \frac{\hat u_j}{1-h_j}
+\end{align}
+\end{itemize}
+
+where $h_j$ is the $j$ diagonal element of $P_X$
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Applications: Outliers and High Leverage Data}
+Finally we get 
+
+\begin{align}
+  (\hat \beta^{(j)} - \hat \beta)&= - \frac{1}{1-h_j} (X'X)^{-1}X_j'\hat u_j
+\end{align}
+
+
+
+\end{frame}
+
+%----------------------------------------------------------------------%
+\section{Calculating the OLS coefficients}
+%----------------------------------------------------------------------%
+
+
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+\subsection{Traditional Computation}
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Linear Regression}
+
+
+\begin{itemize}
+  \item Using matrix algebra,  the loss function:
+\begin{align}
+   \tilde e' \tilde e  = (y-X \tilde \beta)'(y-X \tilde \beta)
+\end{align}
+  \begin{itemize}
+    \footnotesize
+  \item $SSR(\tilde \beta)$ is the aggregation of squared errors if we choose $\tilde \beta$ as an estimator.
+  \end{itemize}  
+
+  \bigskip
+
+    \item The {\bf least squares estimator $\hat \beta$} will be
+
+    \begin{align}
+      \hat \beta = \underset{\tilde \beta}{argmin}\, SSR(\tilde \beta)
+    \end{align}
+
+\end{itemize}
+
+\end{frame}
+
+%----------------------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Normal Equations}
+
+\begin{itemize}
+  \item FOC are
+
+
+
+\begin{align}
+ \frac{\partial \tilde{e}' \tilde{e}}{\partial \tilde \beta} =0   
+ \end{align}
+ \begin{align}
+ -2X'y + 2X'X \tilde\beta  =0
+\end{align}
+\medskip
+
+\item SOC {\tiny(H.W.)}
+
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Normal Equations}
+\begin{itemize}
+\item Let $\hat \beta$ be the solution. Then $\hat \beta$ satisfies the following normal equation
+
+\begin{align}
+X'X\hat \beta=X'y
+\end{align}
+
+\item If the inverse of $X'X$ exists, then
+
+\begin{align}
+\hat \beta=(X'X)^{-1}X'y
+\end{align}
+
+
+ \item Pro
+\begin{itemize}
+  \item Closed solution (a bonus!!) 
+\end{itemize}
+\item Cons
+\begin{itemize}
+  \item Involves inverting a $K\times K$ matrix $X'X$
+\item requires allocating $O (nk+k^2)$ if n is "big" we cannot store  in memory
+\end{itemize}
+
+\end{itemize}
+
+
+
+\end{frame}
+
+
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{\texttt{QR} decomposition}
+
+\begin{itemize}
+\item To avoid inverting   $X'X$ we can use  matrix decomposition: \texttt{QR} decomposition
+\medskip
+\item Most software use it
+\end{itemize}
+
+ 
+ \begin{Shaded}
+{\bf Theorem}
+If $A\in\mathbb{R}^{n\times k}$ then there exists an orthogonal $Q\in \mathbb{R}^{n\times k}$ and an upper triangular $R\in \mathbb{R}^{k\times k}$ so that $A=QR$
+\end{Shaded}
+
+\begin{itemize}
+  
+  \footnotesize
+  \item Orthogonal Matrices: 
+  \begin{itemize}
+    \tiny
+  \item Def: $Q'Q=QQ'=I$ and $Q'=Q^{-1}$
+  \item Prop: product of orthogonal is orthogonal, e.g $A'A=I$ and $B'B=I$ then $(AB)'(AB)=B'(A'A)B=B'B=I$
+  \end{itemize}
+  \item {\bf (Thin QR)} If $A\in\mathbb{R}^{n\times k}$   has full column rank then $A=Q_1R_1$ the QR factorization is unique, where $Q_1 \in\mathbb{R}^{n\times k}$ and $R$ is upper triangular with  positive diagonal entries
+\end{itemize}
+
+
+\end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{\texttt{QR} decomposition}
+
+\begin{itemize}
+\item  $\hat \beta$?
+
+
+\begin{align}
+  (X'X) \hat \beta &=  X'y  \\
+  (R'Q'QR) \hat \beta &=  R'Q'y  \\
+  (R'R) \hat \beta &=  R'Q'y  \\
+  R \hat \beta &=  Q'y  
+\end{align}
+
+\medskip
+\item Solve by back substitution
+
+\end{itemize}
+
+\end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{\texttt{QR} decomposition}
+
+\footnotesize
+\begin{align}
+X=\left[\begin{array}{cc}
+1 & 2\\
+1 & 2\\
+1 & 3
+\end{array}\right]\,\,
+ y=\left(\begin{array}{c}
+1\\
+4\\
+2
+\end{array}\right)
+\end{align}
+1. QR factorization  X=QR
+\begin{align}
+Q=\left[\begin{array}{cc}
+-0.57 & -0.41 \\
+-0.57 & -0.41 \\
+-0.57 & 0.82
+\end{array}\right]\,\,
+R=\left[\begin{array}{cc}
+-1.73 & -4.04 \\
+0 & 0.81 
+\end{array}\right]
+\end{align}
+2. Calculate $Q'y=[-4.04,-0.41]'$
+
+3. Solve
+
+\begin{align}
+\left[\begin{array}{cc}
+-1.73 & -4.04 \\
+0 & 0.81 
+\end{array}\right]\left[\begin{array}{c}
+\beta_1 \\
+\beta_2 
+\end{array}\right]=\left[\begin{array}{c}
+-4.04 \\
+-0.41
+\end{array}\right]
+\end{align}
+
+Solution is $(3.5, -0.5)$
+\end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{\texttt{QR} decomposition}
+This is actually what \texttt{R} does under the hood
+
+
+\begin{figure}[H] \centering
+  \centering
+  \includegraphics[scale=0.45]{figures/lm_object.png}
+  \\
+  \tiny 
+\end{figure}
+
+
+Note that \texttt{R's} \texttt{lm} also returns many objects that have the same size as X and y
+
+\end{frame}
+
+
+
+%----------------------------------------------------------------------%
+\subsection{Gradient Descent}
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent}
+\begin{figure}[H] \centering
+  \centering
+  \includegraphics[scale=0.35]{figures/meme_gradient_descent.png}
+  % \\
+  % \tiny
+  % Source: https://tinyurl.com/y4lvjxpc
+\end{figure}
+
+\end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent}
+\begin{itemize}
+  \item Gradient Descent is a very generic optimization algorithm capable of finding optimal solutions to a wide range of problems. 
+\medskip
+\item The general idea of Gradient Descent is to tweak parameters iteratively in order to minimize a loss function.
+\end{itemize}
+
+\begin{align}
+\text{min}_f E[ L\left(y_i, f(\boldsymbol{X_i})\right)]
+\end{align}
+
+
+
+
+\end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent}
+\framesubtitle{Linear regression}
+\begin{itemize}
+ \item The problem boils down to estimating the coefficients of vector $\beta$ which minimize an objective function:
+\end{itemize}
+
+\begin{align}
+\text{arg}\min_\beta \sum_{i=1}^{n}\frac{1}{n}  \left(y_i- \beta_0 + \sum_{k=1}^K X_k \beta_k\right)^2
+\end{align}
+\end{frame}
+
+
+
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent}
+\framesubtitle{Linear regression}
+
+\begin{itemize}
+  \item Intuition: Loss Function 1 dimension 
+\end{itemize}
+\begin{figure}[H] \centering
+  \centering
+  \includegraphics[scale=0.55]{figures/lasso0.pdf}
+  % \\
+  % \tiny
+  % Source: https://tinyurl.com/y4lvjxpc
+\end{figure}
+
+
+
+\end{frame}
+
+
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent}
+\framesubtitle{Linear regression}
+
+\begin{itemize}
+  \item Intuition: Loss Function 2 dimensions 
+\end{itemize}
+\begin{figure}[H] \centering
+  \centering
+  \includegraphics[scale=0.45]{figures/ols1}
+  % \\
+  % \tiny
+  % Source: https://tinyurl.com/y4lvjxpc
+\end{figure}
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}<1>[label=step]
+\frametitle{Gradient Descent}
+
+
+
+\begin{itemize}
+
+  \item In a more general context, when at a point $\beta \in \mathbb{R}^k$, at any step $i$, the gradient descent algorithm tries to move in a direction $\delta \beta$ such that:
+
+  \begin{align}
+   L(\beta^{(t)}+\delta \beta)<L(\beta^{(t)})
+   \end{align} 
+
+  \item  The choice of $\delta \beta$ is made such that $\delta \beta = -\epsilon \nabla_\beta L(\beta^{(t)})$: 
+
+
+    \begin{align}
+    \beta^{(t+1)}=\beta^{(t)}-\epsilon \nabla_\beta L(\beta^{(t)})
+    \end{align}
+
+    \item In other words, you need to calculate how much the cost function will change if you change $\beta$ just a little bit.
+    \medskip
+    \pause
+    \item You also need to define the learning step $\epsilon$
+
+
+\end{itemize}
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}<1>[label=step]
+\frametitle{Gradient Descent}
+
+
+
+
+\begin{itemize}
+ \item Algorithm
+ \medskip
+  \begin{enumerate}
+    \item Randomly pick starting values for the parameters
+    \medskip
+      \item Compute the gradient of the objective function at the current value of the parameters using all the observations from the training sample
+      \medskip
+      \item Update the parameters
+      \medskip
+      \item Repeat from step 2 until a fixed number of iteration or until convergence.
+  \end{enumerate}
+\end{itemize} 
+    
+
+
+
+
+ 
+  \end{frame}
+
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent: Example}
+
+
+
+
+
+\begin{minipage}[c]{0.38\linewidth}
+        
+\begin{table}[]
+\begin{tabular}{cc}
+log(wage) & Education (years) \\
+5         & 8                                                         \\
+10        & 12                                                          \\
+12.5      & 16                                                          \\
+\end{tabular}
+\end{table}
+           
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.58\linewidth}%
+        \begin{figure}[H] \centering
+            \captionsetup{justification=centering}  
+            \includegraphics[scale=0.25]{figures/fig_1_grad.pdf}
+    \end{figure}
+    \end{minipage}
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent: Example}
+
+
+
+
+
+\begin{minipage}[c]{0.38\linewidth}
+        
+\begin{table}[]
+\begin{tabular}{cc}
+log(wage) & Education (years) \\
+5         & 8                                                         \\
+10        & 12                                                          \\
+12.5      & 16                                                          \\
+\end{tabular}
+\end{table}
+
+\bigskip
+
+\begin{align}
+\hat \beta=(X'X)^{-1}X'y \nonumber
+\end{align}
+
+
+
+
+\begin{Shaded}
+%\begin{Highlighting}[]
+\begin{verbatim}
+beta<-solve(t(X)%*%X)%*%t(X)%*%y
+
+lm(y~x,data)
+\end{verbatim}
+%\end{Highlighting}
+\end{Shaded}
+
+\begin{align}
+y=-2.0833 +  0.9375 \times Educ \nonumber
+\end{align}
+
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.58\linewidth}%
+        \begin{figure}[H] \centering
+            \captionsetup{justification=centering}  
+            \includegraphics[scale=0.25]{figures/fig_1b_grad.pdf}
+    \end{figure}
+    \end{minipage}
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent: Example}
+
+
+
+
+     
+\begin{align}
+R(\alpha,\beta)=\frac{1}{n}\sum_{i=1}^{n}(y_{i}-(\alpha+\beta x_{i}))^{2} \nonumber
+\end{align}
+
+The Gradient
+
+\begin{align}
+\nabla R(\alpha,\beta)=\left(\begin{array}{c}
+\frac{\partial R}{\partial\alpha}\\
+\frac{\partial R}{\partial\beta}
+\end{array}\right)=\left(\begin{array}{c}
+-\frac{2}{n}\sum_{i=1}^{n}(y_{i}-\alpha-\beta x_{i})\\
+-\frac{2}{n}\sum_{i=1}^{n}x_{i}(y_{i}-\alpha-\beta x_{i})
+\end{array}\right)  \nonumber
+\end{align}
+
+Updating
+\begin{align}
+\alpha^{(t+1)} &=\alpha^{(t)}-\epsilon\frac{\partial R}{\partial\alpha} \nonumber \\
+\beta^{(t+1)} &= \beta^{(t)}-\epsilon\frac{\partial R}{\partial\beta} \nonumber
+\end{align}
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent: Example}
+\tiny
+First Iteration
+\begin{table}[]
+\begin{tabular}{cc}
+log(wage) & Education (years) \\
+5         & 8                                                         \\
+10        & 12                                                          \\
+12.5      & 16                                                          \\
+\end{tabular}
+\end{table}
+
+Start with an initial guess: $\alpha=-1;\beta=2$ , and a learning rate ($\epsilon=0.005$). Then we have
+
+\begin{align}
+\alpha' &=(-1)-0.005\left(-2/3\times\left((5-(-1)-2\times8)+(10-(-1)-2\times12\right)+(12.5-(-1)-2\times16)\right) \nonumber \\
+\beta' &=2+0.005\left(-2/3\times\left(8(5-(-1)-2\times8)+12(10-(-1)-2\times12\right)+16(12.5-(-1)-2\times16)\right) \nonumber \\
+\alpha'&=-1.1384 \nonumber \\
+\beta' &=0.2266 \nonumber
+\end{align}
+
+
+
+
+
+    
+        \begin{figure}[H] \centering
+            \captionsetup{justification=centering}  
+            \includegraphics[scale=0.15]{figures/fig_1_2_grad.pdf}
+    \end{figure}
+
+
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent: Example}
+\tiny
+Second Iteration
+\begin{table}[]
+\begin{tabular}{cc}
+log(wage) & Education (years) \\
+5         & 8                                                         \\
+10        & 12                                                          \\
+12.5      & 16                                                          \\
+\end{tabular}
+\end{table}
+
+Start with an initial guess: $\alpha=-1;\beta=2$ , and a learning rate ($\epsilon=0.005$). Then we have
+
+\begin{align}
+\alpha^2 &=(-1.1384)-0.005\left(-2/3\times\left((5-(-1.1384)-(0.2266)\times8)+(10-(-1.1384)-(0.2266)\times12\right)+(12.5-(-1.1384)-(0.2266)\times16)\right) \nonumber \\
+\beta^2 &=(0.2266)+0.005\left(-2/3\times\left(8(5-(-1.1384)-(0.2266)\times8)+12(10-(-1.1384)-(0.2266)\times12\right)+16(12.5-(-1.1384)-(0.2266)\times16)\right) \nonumber \\
+\alpha^2&= -1.0624 \nonumber \\
+\beta^2 &= 1.212689 \nonumber
+\end{align}
+
+
+
+
+
+    
+        \begin{figure}[H] \centering
+            \captionsetup{justification=centering}  
+            \includegraphics[scale=0.15]{figures/fig_1_3_grad.pdf}
+    \end{figure}
+
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent: Example}
+\tiny
+Third Iteration
+\begin{table}[]
+\begin{tabular}{cc}
+log(wage) & Education (years) \\
+5         & 8                                                         \\
+10        & 12                                                          \\
+12.5      & 16                                                          \\
+\end{tabular}
+\end{table}
+
+
+
+\begin{align}
+\alpha^3&= -1.0624 \nonumber \\
+\beta^3 &= 1.212689 \nonumber
+\end{align}
+
+
+
+
+
+    
+        \begin{figure}[H] \centering
+            \captionsetup{justification=centering}  
+            \includegraphics[scale=0.15]{figures/fig_1_4_grad.pdf}
+    \end{figure}
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent: Example}
+\tiny
+Fourth Iteration
+\begin{table}[]
+\begin{tabular}{cc}
+log(wage) & Education (years) \\
+5         & 8                                                         \\
+10        & 12                                                          \\
+12.5      & 16                                                          \\
+\end{tabular}
+\end{table}
+
+
+
+\begin{align}
+\alpha^4&=  -1.082738 \nonumber \\
+\beta^4 &= 0.9693922 \nonumber
+\end{align}
+
+
+        \begin{figure}[H] \centering
+            \captionsetup{justification=centering}  
+            \includegraphics[scale=0.15]{figures/fig_1_5_grad.pdf}
+    \end{figure}
+
+
+
+\end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Gradient Descent: Example}
+\tiny
+7211 Iteration
+\begin{table}[]
+\begin{tabular}{cc}
+log(wage) & Education (years) \\
+5         & 8                                                         \\
+10        & 12                                                          \\
+12.5      & 16                                                          \\
+\end{tabular}
+\end{table}
+
+
+
+\begin{align}
+\alpha^{7211} &=  -2.076246 \nonumber \\
+\beta^{7211} &=  0.9369499 \nonumber
+\end{align}
+
+
+\begin{align}
+y^{ols}=-2.0833 +  0.9375 \times Educ \nonumber
+\end{align}
+
+
+        \begin{figure}[H] \centering
+            \captionsetup{justification=centering}  
+            \includegraphics[scale=0.15]{figures/fig_1_7211_grad.pdf}
+    \end{figure}
+
+ \end{frame}
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{ Gradient Descent}
+\frametitle{The learning rate}
+
+
+\begin{figure}[H] \centering
+  \centering
+  \includegraphics[scale=0.45]{figures/step_size2.png}
+  \\
+  \tiny
+  Source: Boehmke, B., \& Greenwell, B. (2019)
+\end{figure}
+
+\begin{itemize}
+  
+\item We can choose $\epsilon$ in several different ways:
+\begin{itemize}
+  \footnotesize
+\item Set $\epsilon$ to a small constant. 
+ \item Use varying learning rates.
+\end{itemize}
+ 
+\end{itemize}
+ \end{frame}
+
+
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+\section{Review}
+%----------------------------------------------------------------------%
+%----------------------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Review}
+  
+
+\begin{itemize}
+ \item This Week: The predictive paradigm and linear regression
+ \medskip
+    \begin{itemize} 
+        \item Machine Learning is all about prediction
+         \medskip
+         \item ML targets something different than causal inference, they can complement each other
+         \medskip
+         \item Linear Regression can approximate $E(y|X)$
+         \medskip
+         \item Inner workings of linear regression
+      \end{itemize}
+        \medskip
+  \item Next Module: Choosing choosing the right complexity, Out of sample prediction. Over-fit, Resampling Methods, Web-scrapping 
+
+    \end{itemize}
+
+\end{frame}
+
+
+
+%----------------------------------------------------------------------%
+\end{document}

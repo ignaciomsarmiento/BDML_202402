@@ -1,7 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/r,latex,microsoftoffice
 # Edit at https://www.toptal.com/developers/gitignore?templates=r,latex,microsoftoffice
 
-
+PS3/figures/* 
 */figures/* 
 */Papers/* 
 */extra/* 
